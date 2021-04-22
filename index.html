@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html lang="no">
+    
+    <head>
+        <meta charset="utf-8">
+        <title>Heim</title>
+        
+        <style>
+            main{
+                display:flex;
+                margin:40px;
+            }
+            main > a{
+                    text-decoration: none;
+                    flex:10;
+                    padding:10px;
+                    transition:1s;
+                    background-color:darkgray;
+                }
+            main > a:hover{
+                flex:12;
+                opacity:1;
+                transform: scale(1.2);
+                background-position:center;
+            }
+            a:hover + a{
+                opacity:0.6;
+            }
+            a:hover + a + a {
+                opacity: 0.6;
+            }
+                h1{
+                color:black;
+            }
+            img{
+                width:100%;
+            }
+        </style>
+        
+    </head>
+    
+    
+    <body>
+        <main>
+            <a href="kap.6/6.0.html">
+                <h1>Kapittel 6. <br>Tryggleik Og Regelverk</h1>
+                <img src="media/placeholder.jpg"/>
+            </a>
+            <a href="kap.5/5.0.html">
+                <h1>Kapittel 5. <br>Sosiale Medium</h1>
+                <img src="media/placeholder.jpg" />
+            </a>
+            <a href="film/vossfilm.html">
+                <h1>Voss Film AS<br><br></h1>
+                <img src="media/placeholder.jpg" />
+            </a>
+        </main>
+    </body>
+
+</html>

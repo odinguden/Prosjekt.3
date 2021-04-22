@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html lang="no">
+    
+    <head>
+        <meta charset="utf-8">
+        <title>Heim</title>
+        
+        <style>
+            main{
+                margin:40px auto;
+                display: flex;
+                background-color:deeppink;
+                height:400px;
+
+            }
+            main > a{
+                flex: 5;
+                background-color: #b00d23;
+                border: 4px solid white;
+                opacity: 1.0;
+                background-position:center;
+                background-size: cover;
+                transition: 0.5s;
+                text-decoration: none;
+                color: black;
+                overflow:hidden;
+                padding:40px;
+            }
+            main > a:hover{
+                flex: 10;
+                transform: scale(1.2);
+                opacity: 1;
+                z-index: 1;
+            }
+            img{
+                height:100%;
+            }
+            h1{
+
+            }
+        </style>
+        
+    </head>
+    
+    
+    <body>
+        <main>
+            <a href="#test">
+                <h1>test</h1>
+                <img src="media/placeholder.jpg"/>
+            </a>
+            <a>
+                <h1>test</h1>
+            </a>
+            <a>
+                <h1>test</h1>
+            </a>
+        </main>
+    </body>
+
+</html>
