@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+
+<html lang="no">
+    
+    <head>
+        <meta charset="utf-8">
+        <title>Administrator</title>
+        <link rel="stylesheet" href="stil.film.css">
+        <link rel="shortcut icon" href="../media/VossLogo.png">
+        <style>
+        
+        </style>
+        
+    </head>
+    <body>
+        <header>
+            <nav>
+                <a href="../kjelde/kjeldefilm.html">Kjeldeside</a>
+                <a href="vossfilm.html">Heim</a>
+                <a href="bestillinger.html">Bestill</a>
+            </nav>
+        </header>
+        <main>
+            <div class="kol-2"></div>
+            <div class="kol-8"><h1>Administrator</h1></div>
+            <div class="kol-2"></div><div class="kol-2"></div>
+            <div class="kol-2"></div>
+            <div class="kol-8"><h1>Brukarer</h1><article id="txtBruker"></article></div>
+            <div class="kol-2"></div><div class="kol-2"></div>
+            <div class="kol-8"><h1>Bestillinger</h1><article id="txtBestilling"></article></div>
+        </main>
+
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-database.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+    https://firebase.google.com/docs/web/setup#available-libraries -->
+
+
+        <script>
+            // Your web app's Firebase configuration
+            var firebaseConfig = {
+                apiKey: "AIzaSyCX5fHGK6c13RSvSjJ7eNHdYrAFutjsbYg",
+                authDomain: "prosjekt-3-87f15.firebaseapp.com",
+                databaseURL: "https://prosjekt-3-87f15-default-rtdb.firebaseio.com",
+                projectId: "prosjekt-3-87f15",
+                storageBucket: "prosjekt-3-87f15.appspot.com",
+                messagingSenderId: "993669415130",
+                appId: "1:993669415130:web:3f945466f741611bf9a5e3",
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+        </script>
+        <script>
+            //skjema1
+            let database = firebase.database();
+            let Bruker = database.ref("Bruker");
+            let skjema1 = document.getElementById("skjema1");
+            let inpFornamn = document.getElementById("inpFornamn");
+            let inpEtternamn = document.getElementById("inpEtternamn");
+            let inpMail = document.getElementById("inpMail");
+            let inpTlf = document.getElementById("inpTlf");
+            let inpBedrift = document.getElementById("inpBedrift")
+            let inpPost = document.getElementById("inpPost");
+            let inpGate = document.getElementById("inpGate");
+            let txtBruker = document.getElementById("txtBruker");
+
+
+            function visBruker(snapshot) {
+                let bruker = snapshot.val();
+                let brukertekst = `<table>
+                        <tr><td><b>Namn: </b></td><td>${bruker.fornamn} ${bruker.etternamn}
+                        </td><td><b>Bedrift: </b></td><td>${bruker.bedrift} </td></tr><tr>
+                        <td><b>Telefon: </b></td><td>${bruker.telefon}</td><td>
+                        <b>e-post: </b></td><td>${bruker.epost} </td></tr><tr>
+                        <td><b>Adresse: </b></td><td>${bruker.gate} </td><td><b>Poststed: </b></td><td>${bruker.post}</td></tr>
+                        </table>`;
+                txtBruker.innerHTML = txtBruker.innerHTML + brukertekst;
+            }
+
+            function regNybruker(evt) {
+                evt.preventDefault();
+                let nyBruker = {
+                    fornamn: inpFornamn.value,
+                    etternamn: inpEtternamn.value,
+                    telefon: inpTlf.value,
+                    epost: inpMail.value,
+                    bedrift: inpBedrift.value,
+                    post: inpPost.value,
+                    gate: inpGate.value,
+                };
+                Bruker.push(nyBruker);
+                inpFornamn.value = "";
+                inpEtternamn.value = "";
+                inpBedrift.value = "";
+                inpTlf.value = "";
+                inpMail.value = "";
+                inpGate.value = "";
+                inpPost.value = "";
+            }
+
+            Bruker.on("child_added", visBruker);
+            skjema1.onsubmit = regNybruker;
+
+            //Skjema2
+            let skjema2 = document.getElementById("skjema2");
+            let Bestilling = database.ref("Bestilling")
+            let inpBruker = document.getElementById("inpBruker");
+            let inpTjeneste = document.getElementById("inpTjeneste");
+            let inpKomentar = document.getElementById("inpKomentar");
+            let inpPris = document.getElementById("inpPris");
+            let txtBestilling = document.getElementById("txtBestilling")
+
+            function visBestilling(snapshot) {
+                let Bestilling = snapshot.val();
+                let BestillingTekst = `<table>
+                        <tr><td><b>Bruker: </b></td><td>${Bestilling.Bruker}
+                        </td><td><b>Tjeneste: </b></td><td>${Bestilling.Tjeneste} </td></tr><tr>
+                        <td><b>Pris: </b></td><td>${Bestilling.Pris}</td><td>
+                        <b>Komentar: </b></td><td>${Bestilling.Komentar} </td></tr><tr>`;
+                txtBestilling.innerHTML = txtBestilling.innerHTML + BestillingTekst;
+            }
+
+            function regNyBestilling(evt) {
+                evt.preventDefault();
+                let nyBestilling = {
+                    Bruker: inpBruker.value,
+                    Tjeneste: inpTjeneste.value,
+                    Pris: inpPris.value,
+                    Komentar: inpKomentar.value,
+
+                };
+                Bestilling.push(nyBestilling);
+                inpBruker.value = "";
+                inpTjeneste.value = "";
+                inpPris.value = "";
+                inpKomentar.value = "";
+            }
+
+            Bestilling.on("child_added", visBestilling);
+            skjema2.onsubmit = regNyBestilling;
+        </script>
+    </body>
+
+</html>

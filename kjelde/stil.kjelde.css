@@ -1,0 +1,55 @@
+body{
+    background-color:black;
+}
+main{
+    margin-top:100px;
+    display: grid;
+    grid-template-columns:repeat(12,1fr);
+}
+header {
+    position: fixed;
+    height: 50px;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    margin-top: 0px;
+    width: 100%;
+    background-color: orangered;
+}
+nav{
+    border: none;
+    display: flex;
+    justify-content: space-around;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+nav a{
+    text-decoration:none;
+}
+nav a{
+    background-color: orangered;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+    outline: none;
+    border: none;
+    font-family:Tahoma;
+}
+nav a:hover{
+    background-color: red;
+    color: black;
+}
+
+
+.kol-1 {grid-column: span 1;}
+.kol-2 {grid-column: span 2;}
+.kol-3 {grid-column: span 3;}
+.kol-4 {grid-column: span 4;}
+.kol-5 {grid-column: span 5;}
+.kol-6 {grid-column: span 6;}
+.kol-7 {grid-column: span 7;}
+.kol-8 {grid-column: span 8;}
+.kol-9 {grid-column: span 9;}
+.kol-10{grid-column: span 10;}
+.kol-11{grid-column: span 11;}
+.kol-12{grid-column: span 12;}
