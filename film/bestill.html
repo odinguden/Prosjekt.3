@@ -4,62 +4,33 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Ny Bruker</title>
-    <link rel="stylesheet" href="stil.film.css">
-    <link rel="shortcut icon" href="../media/VossLogo.png">
+    <title>Prosjekt</title>
+
     <style>
+        p{
+            padding:12px;
+            background-color:lightgray;
+        }
     </style>
 
 </head>
 
 
 <body>
-    <header>
-        <nav>
-            <div class="meny">
-                <div class="meny-btn">Meny</div>
-                <div class="meny-innhold">
-                    <a href="admin.html">Administrator</a>
-                    <a href="../kjelde/kjeldefilm.html">Kjeldeside</a>
-                </div>
-            </div>
-            <a href="vossfilm.html">Heim</a>
-            <a href="bestill.html">Bestill</a>
-        </nav>
-    </header>
-    <main>
-        <div class="kol-2"></div>
-        <div class="kol-8"><h1>ny bruker</h1></div>
-        <div class="kol-2"></div><div class="kol-2"></div>
-        <div class="kol-8">
-            <form id="skjema1">
-                <input type="text" id="inpFornamn" required placeholder="Fornamn">
-                <input type="text" id="inpEtternamn" required placeholder="Etternamn">
-                <input type="email" id="inpMail" required placeholder="Epost">
-                <input type="number" id="inpTlf" required placeholder="Telefonnummer"><br>
-                <input type="text" id="inpBedrift" required placeholder="Bedriftsnamn">
-                <input type="text" id="inpGate" required placeholder="Gateadresse">
-                <input type="text" id="inpPost" required placeholder="Poststed">
+    <h1>ny bruker</h1>
+    <form id="skjema">
+        <input type="text" id="inpFornamn" required placeholder="Fornamn">
+        <input type="text" id="inpEtternamn" required placeholder="Etternamn">
+        <input type="email" id="inpMail" required placeholder="Epost">
+        <input type="number" id="inpTlf" required placeholder="Telefonnummer"><br>
+        <input type="text" id="inpBedrift" required placeholder="Bedriftsnamn">
+        <input type="text" id="inpGate" required placeholder="Gateadresse">
+        <input type="text" id="inpPost" required placeholder="Poststed">
 
-                <button type="submit" class="button">Registrer</button>
-            </form>
-        </div>
-        <div class="kol-2"></div><div class="kol-2"></div>
-        <div class="kol-8">
-            <form id="skjema2">
-                <input type="text" id="inpBruker" required placeholder="Bruker">
-                <input type="text" id="inpTjeneste" required placeholder="Ønsket Tjeneste">
-                <input type="text" id="inpPris" required placeholder="Ønsket Pris">
-                <input type="text" id="inpKomentar" required placeholder="Kommentar">
+        <button type="submit" class="button">Registrer</button>
+    </form>
 
-                <button type="submit" class="button">Bestill</button>
-            </form>
-        </div>
-        <div class="kol-2"></div><div class="kol-2"></div>
-        <div class="kol-8"><article id="txtBruker"></article></div>
-        <div class="kol-2"></div><div class="kol-2"></div>
-        <div class="kol-8"><article id="txtBestilling"></article></div>
-    </main>
+    <article id="txtBruker"></article>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-database.js"></script>
@@ -84,10 +55,10 @@
     </script>
 
     <script>
-        //skjema1
+
         let database = firebase.database();
         let Bruker = database.ref("Bruker");
-        let skjema1 = document.getElementById("skjema1");
+        let skjema = document.getElementById("skjema");
         let inpFornamn = document.getElementById("inpFornamn");
         let inpEtternamn = document.getElementById("inpEtternamn");
         let inpMail = document.getElementById("inpMail");
@@ -97,16 +68,15 @@
         let inpGate = document.getElementById("inpGate");
         let txtBruker = document.getElementById("txtBruker");
 
-
         function visBruker(snapshot) {
             let bruker = snapshot.val();
-            let brukertekst = `<table>
-                <tr><td><b>Namn: </b></td><td>${bruker.fornamn} ${bruker.etternamn}
-                </td><td><b>Bedrift: </b></td><td>${bruker.bedrift} </td></tr><tr>
-                <td><b>Telefon: </b></td><td>${bruker.telefon}</td><td>
-                <b>e-post: </b></td><td>${bruker.epost} </td></tr><tr>
-                <td><b>Adresse: </b></td><td>${bruker.gate} </td><td><b>Poststed: </b></td><td>${bruker.post}</td></tr>
-                </table>`;
+            let brukertekst = `<p>
+                <b>Namn: </b>${bruker.fornamn} ${bruker.etternamn}
+                <b>Bedrift: </b>${bruker.bedrift} <br>
+                <b>Telefon: </b>${bruker.telefon}
+                <b>e-post: </b>${bruker.epost} <br>
+                <b>Adresse: </b>${bruker.gate} <b>Poststed: </b>${bruker.post}
+                </p>`;
             txtBruker.innerHTML = txtBruker.innerHTML + brukertekst;
             }
 
@@ -132,45 +102,8 @@
         }
 
         Bruker.on("child_added", visBruker);
-        skjema1.onsubmit = regNybruker;
+        skjema.onsubmit = regNybruker;
 
-        //Skjema2
-        let skjema2 = document.getElementById("skjema2");
-        let Bestilling = database.ref("Bestilling")
-        let inpBruker = document.getElementById("inpBruker");
-        let inpTjeneste = document.getElementById("inpTjeneste");
-        let inpKomentar = document.getElementById("inpKomentar");
-        let inpPris = document.getElementById("inpPris");
-        let txtBestilling = document.getElementById("txtBestilling")
-
-        function visBestilling(snapshot) {
-            let Bestilling = snapshot.val();
-            let BestillingTekst = `<table>
-                <tr><td><b>Bruker: </b></td><td>${Bestilling.Bruker}
-                </td><td><b>Tjeneste: </b></td><td>${Bestilling.Tjeneste} </td></tr><tr>
-                <td><b>Pris: </b></td><td>${Bestilling.Pris}</td><td>
-                <b>Komentar: </b></td><td>${Bestilling.Komentar} </td></tr><tr>`;
-            txtBestilling.innerHTML = txtBestilling.innerHTML + BestillingTekst;
-        }
-
-        function regNyBestilling(evt) {
-            evt.preventDefault();
-            let nyBestilling = {
-                Bruker: inpBruker.value,
-                Tjeneste: inpTjeneste.value,
-                Pris: inpPris.value,
-                Komentar: inpKomentar.value,
-
-            };
-            Bestilling.push(nyBestilling);
-            inpBruker.value = "";
-            inpTjeneste.value = "";
-            inpPris.value = "";
-            inpKomentar.value = "";
-        }
-
-        Bestilling.on("child_added", visBestilling);
-        skjema2.onsubmit = regNyBestilling;
     </script>
 
 </body>

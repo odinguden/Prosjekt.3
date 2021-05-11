@@ -4,72 +4,10 @@
     
     <head>
         <meta charset="utf-8">
-        <title>Heim</title>
+        <title>Prosjekt</title>
         <link rel="stylesheet" href="stil.5.css">
-        <link rel="shortcut icon" href="../media/logoKjelde.png">
         <style>
-            .framside-container {
-                grid-column: span 12;
-                display: grid;
-                grid-template-columns: repeat( 12, 1fr);
-                justify-content: space-around;
-                background-color: black;
-                border-radius: 25px;
-                margin: 10px;
-                overflow: hidden;
-                border: solid;
-                border-color: orangered;
-                transition: 1s;
-            }
-
-            .delkapittel {
-                position: relative;
-                grid-column: span 3;
-                text-align: center;
-                transition: 1s;
-            }
-
-                .delkapittel > a:hover > img {
-                    opacity: 0.5;
-                    transition: 1s;
-                    filter: blur(1.5px)
-                }
-
-                .delkapittel > a:hover > span {
-                    opacity: 1;
-                    transition: 2s;
-                }
-
-                .delkapittel > a > span {
-                    color: white;
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
-                    opacity: 0;
-                    font-size: 50px;
-                    transition: 1s;
-                }
-
-                .delkapittel > a > img {
-                    width: 100%;
-                    transition: 1s;
-                }
-
-            .samandrag {
-                background-color: orangered;
-                border-radius: 25px;
-                grid-column: span 3;
-                text-align: center;
-                height: 100px;
-                text-decoration: none;
-                color: black;
-            }
-
-                .samandrag:hover {
-                    transition: 1s;
-                    opacity: 0.6;
-                }
+        
         </style>
         
     </head>
@@ -77,36 +15,10 @@
     
     <body>
         <header>
-            <nav>
-                <div class="meny">
-                    <div class="meny-btn">Delkapittel</div>
-                    <div class="meny-innhold">
-                        <a href="5.1.html">5.1 Sosiale Medium</a>
-                        <a href="5.2.html">5.2 Konsekvensar Og Måtar</a>
-                        <a href="5.3.html">5.3 Etiske Normer - Om Oppførsel På Nett</a>
-                        <a href="5.4.html">5.4 Din Risiko På Internett</a>
-                        <a href="5.5.html">Samandrag</a>
-                    </div>
-                </div>
-                <a href="../index.html">Heim</a>
-                <a href="../kjelde/kjelde5.html">Kjeldeside</a>
-            </nav>
+            meny
         </header>
-        <main>
-            <div class="kol-12" style="height:100px;"></div>
-
-            <div class="framside-container">
-                <div class="delkapittel"><a href="5.1.html"><img src="../Media/kap.5/1.jpg"><span>5.1 Sosiale Medium</span></a></div>
-                <div class="delkapittel"><a href="5.2.html"><img src="../Media/kap.5/2.jpg"><span>5.2 Konsekvensar Og Måtar</span></a></div>
-                <div class="delkapittel"><a href="5.3.html"><img src="../Media/kap.5/3.jfif"><span>5.3 <br> Etiske Normer</span></a></div>
-                <div class="delkapittel"><a href="5.4.html"><img src="../Media/kap.5/4.jpg"><span>5.4 Din Risiko På Internett</span></a></div>
-            </div>
-            <div class="kol-2"></div>
-            <a href="5.5.html" class="samandrag"><h1>Samandrag</h1></a>
-            <div class="kol-2"></div>
-            <a href="../kjelde/kjelde5.html" class="samandrag"><h1>Kjeldeside</h1></a>
-
-        </main>
+        
+        
     </body>
 
 </html>
