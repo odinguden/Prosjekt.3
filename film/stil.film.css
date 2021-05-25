@@ -38,6 +38,7 @@ header {
     margin-top: 0px;
     width: 100%;
     background-color: orangered;
+    z-index: 2;
 }
 nav{
     display:flex;

@@ -28,6 +28,7 @@
             <div class="kol-8"><h1>Brukarer</h1><article id="txtBruker"></article></div>
             <div class="kol-2"></div><div class="kol-2"></div>
             <div class="kol-8"><h1>Bestillinger</h1><article id="txtBestilling"></article></div>
+            <div class="kol-8"><article id="txtBestilling"></article></div>
         </main>
 
         <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -52,6 +53,7 @@
             // Initialize Firebase
             firebase.initializeApp(firebaseConfig);
         </script>
+
         <script>
             //skjema1
             let database = firebase.database();
@@ -101,7 +103,7 @@
             }
 
             Bruker.on("child_added", visBruker);
-            skjema1.onsubmit = regNybruker;
+            //skjema1.onsubmit = regNybruker;
 
             //Skjema2
             let skjema2 = document.getElementById("skjema2");

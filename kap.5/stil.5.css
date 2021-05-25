@@ -5,8 +5,15 @@ main {
     display: grid;
     grid-template-columns: repeat(12,1fr);
     background-color: black;
+    margin-bottom:100px;
+    margin-top:50px;
 }
-
+li{
+    margin-bottom:10px;
+}
+h2, h1, p, b, ul, li {
+    color: white;
+}
 nav {
     border: none;
     display: flex;

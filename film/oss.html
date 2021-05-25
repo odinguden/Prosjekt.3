@@ -8,18 +8,19 @@
     <link rel="stylesheet" href="stil.film.css">
     <link rel="shortcut icon" href="../media/VossLogo.png">
     <style>
+        video{
+            width:100%;
+        }
         /*Bildeframsjånad*/
         #bilde {
-            margin: 40px auto;
             display: flex;
-            width: 800px;
-            height: 320px;
-            grid-column:8;
+            width: 100%;
+            aspect-ratio: 1/0.4;
         }
         #bilde > div {
             flex: 1;
-            background-color: aquamarine;
-            border: 4px solid deeppink;
+            background-color: black;
+            border: 4px solid orangered;
             opacity: 0.6;
             background-position: center;
             background-size: cover;
@@ -45,15 +46,24 @@
 <main>
     <div class="kol-2"></div>
     <div class="kol-8" style="text-align:center"><h1>Om oss</h1></div><div class="kol-2"></div><div class="kol-2"></div>
-    <div class="kol-8"><p>Me på Voss Film A/S er eit selskap dedikert til å </p></div>
-    <div id="bilde">
-        <div style="background-image:url(1.jpg);"></div>
-        <div style="background-image:url(2.jpg);"></div>
-        <div style="background-image:url(3.jpg);"></div>
-        <div style="background-image:url(4.jpg);"></div>
-        <div style="background-image:url(5.jpg);"></div>
-        <div style="background-image:url(6.jpg);"></div>
+    <div class="kol-8"><p>Me på Voss Film A/S er eit selskap dedikert til å gi gode filmer og bilder til ein fornuftig pris. Me har og hovudkvarteret vårt her på voss så med å handle hos oss støttar du ei lokalbedrift. Under finner du nokon eksemplar på arbeidet vårt.</p></div>
+    <div class="kol-2"></div>
+    <div class="kol-2"></div>
+    <div class="kol-8">
+        <div id="bilde" style="margin: 40px auto;">
+            <div style="background-image:url(../media/VossFilm/1.jpg);"></div>
+            <div style="background-image:url(../media/VossFilm/2.jpg);"></div>
+            <div style="background-image:url(../media/VossFilm/3.jpg);"></div>
+            <div style="background-image:url(../media/VossFilm/4.jpg);"></div>
+            <div style="background-image:url(../media/VossFilm/5.jpg);"></div>
+            <div style="background-image:url(../media/VossFilm/6.jpg);"></div>
+        </div>
     </div>
+    <div class="kol-3"></div>
+    <div class="kol-6"><video src="https://firebasestorage.googleapis.com/v0/b/prosjekt-3-87f15.appspot.com/o/dronefilm.MP4?alt=media&token=3795d1c5-dda7-4c22-ac96-7062b7b2f877" loop autoplay></video></div>
+    <div class="kol-12" style="100px"></div>
+    <div class="kol-2"></div>
+    <div class="kol-8"><p>Dersom du ønsker og bestille nokon av tjenestane våre so kan du gjere det på <a href="bestill.html">bestillings Sida</a> vår</p></div>
 </main>
 <footer>
     <p style="margin-right:20px;">Kontakt oss ved <a href=""title="Ikkje ein ekte epost">Voss@film.no</a></p>
